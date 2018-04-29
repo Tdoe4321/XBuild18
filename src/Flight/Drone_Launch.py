@@ -1,17 +1,47 @@
 from api_library import DroneController
 import time
+import json
+import sys
+from requests import get, put
 
-drone1 = DroneController('b4d793f9680ba50d385e185b619eec0c0752347d', 'HNCnaCYD')
-drone2 = DroneController('746821f921735b2510a5653f31ace5dded0bf7d1', 'wDwpZXns')
-drone3 = DroneController('d7ef6762c83d16416b8f4f6ad93ede528546bb9b', 'jIuzqpPJ')
+def printResponse(msg, r):
+	global armed
+	#print json.loads(r.content)["longitude"]  
+	armed = json.loads(r.content)["armed"]
 
-print "demo"
+def launchLand():
+	global armed
+	armed = False
+	drone1 = DroneController('b4d793f9680ba50d385e185b619eec0c0752347d', 'HNCnaCYD')
 
-print "takeoff"
-print drone1.take_off(5.0)
-print drone2.take_off(5.0)
-print drone3.take_off(5.0)
+	token = 'b4d793f9680ba50d385e185b619eec0c0752347d'	#replace the value with your personal access token within single quotes(')
+	VehicleID = 'HNCnaCYD'	#replace this with the vehicle ID within single quotes (')
+	token = token.replace(" ", "")
+	VehicleID = VehicleID.replace(" ", "")
 
-print "sleeping"
-time.sleep(4.0)
+	headers = {'Authorization':'Token ' + token, 'VehicleID': VehicleID}
+
+	result = get('https://dev.flytbase.com/rest/ros/get_global_namespace', headers = headers)
+	result = json.loads(result.content)
+	namespace = result["param_info"]["param_value"]
+
+	printResponse( "flyt/state ", get('https://dev.flytbase.com/rest/ros/' + namespace + '/flyt/state', headers = headers))
+
+
+	if (armed):
+		print drone1.land(True)
+		time.sleep(7)
+	else:
+		print drone1.take_off(2.0)
+		time.sleep(9)
+
+def main():
+    launchLand()
+
+if __name__ == '__main__':
+    main()
+
+
+
+
 
