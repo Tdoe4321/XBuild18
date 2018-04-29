@@ -334,19 +334,19 @@ results = {
   "images_processed": 5
 }
 
-for x in [1]:
-    for im in results['images']:
-        print(' ')
-        fileparts = os.path.split(im['image'])
-        filename = fileparts[1]
-        print(filename)
-        overlay = ''
-        for clasf in im['classifiers']:
-            clasf_name = clasf['name']
-            if clasf_name is 'Remote Triage':
-                for item in clasf['classes']:
-                    if item['class'] is 'Prone':
-                        overlay = 'Prone person probability (%f%%)' % (item['score'] * 100.0)
-                        print('Prone person probability ({}%)'.format(item['score'] * 100.0))
-        show_image('LieOrStand2/' + filename, overlay)
-                
+
+for im in results['images']:
+    print(' ')
+    fileparts = os.path.split(im['image'])
+    filename = fileparts[1]
+    print(filename)
+    overlay = ''
+    for clasf in im['classifiers']:
+        clasf_name = clasf['name']
+        if clasf_name is 'Remote Triage':
+            for item in clasf['classes']:
+                if item['class'] is 'Prone':
+                    overlay = 'Prone person probability (%f%%)' % (item['score'] * 100.0)
+                    print('Prone person probability ({}%)'.format(item['score'] * 100.0))
+    show_image('LieOrStand2/' + filename, overlay)
+            
