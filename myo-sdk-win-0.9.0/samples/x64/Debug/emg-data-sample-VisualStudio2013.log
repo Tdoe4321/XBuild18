@@ -1,0 +1,8 @@
+﻿  emg-data-sample.cpp
+f:\programs i download\z - files\myoarmband\myo-sdk-win-0.9.0\include\myo\cxx\detail\throwonerror.hpp(39): warning C4297: 'myo::ThrowOnError::~ThrowOnError': function assumed not to throw an exception but does
+  f:\programs i download\z - files\myoarmband\myo-sdk-win-0.9.0\include\myo\cxx\detail\throwonerror.hpp(39): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
+f:\programs i download\z - files\myoarmband\myo-sdk-win-0.9.0\include\myo\cxx\detail\throwonerror.hpp(45): warning C4297: 'myo::ThrowOnError::~ThrowOnError': function assumed not to throw an exception but does
+  f:\programs i download\z - files\myoarmband\myo-sdk-win-0.9.0\include\myo\cxx\detail\throwonerror.hpp(45): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
+f:\programs i download\z - files\myoarmband\myo-sdk-win-0.9.0\samples\emg-data-sample.cpp(39): error C3867: 'myo::Vector3<float>::x': non-standard syntax; use '&' to create a pointer to member
+f:\programs i download\z - files\myoarmband\myo-sdk-win-0.9.0\samples\emg-data-sample.cpp(40): error C3867: 'myo::Vector3<float>::y': non-standard syntax; use '&' to create a pointer to member
+f:\programs i download\z - files\myoarmband\myo-sdk-win-0.9.0\samples\emg-data-sample.cpp(41): error C3867: 'myo::Vector3<float>::z': non-standard syntax; use '&' to create a pointer to member
