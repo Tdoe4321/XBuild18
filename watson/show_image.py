@@ -1,0 +1,18 @@
+from __future__ import division
+import cv2 as cv
+
+img = cv.imread('LieOrStandFew/IMG_4128.jpg')
+
+screen_res = 1280, 720
+scale_width = screen_res[0] / img.shape[1]
+scale_height = screen_res[1] / img.shape[0]
+scale = min(scale_width, scale_height)
+window_width = int(img.shape[1] * scale)
+window_height = int(img.shape[0] * scale)
+
+cv.namedWindow('TriageImage', cv.WINDOW_NORMAL)
+cv.resizeWindow('TriageImage', window_width, window_height)
+
+cv.imshow('TriageImage', img)
+cv.waitKey(0)
+cv.destroyAllWindows()
