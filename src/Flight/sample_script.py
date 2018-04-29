@@ -16,8 +16,8 @@ print "demo"
 
 # print droneHandle.position_hold()
 # print droneHandle.position_set_global(37.429353, -122.083684, 5.0, 0.0, 1.0, False, False)
-print droneHandle.velocity_set(0.0, 0.0, -10.0)
+#print droneHandle.velocity_set(0.0, 0.0, -10.0)
 # print droneHandle.rtl()
-# print droneHandle.get_global_position()
+print droneHandle.get_global_position()
 # print droneHandle.get_battery_status()
 # print droneHandle.get_local_position()

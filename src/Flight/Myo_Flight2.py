@@ -5,6 +5,7 @@ import time
 import sys
 import myo as libmyo
 import Drone_Launch
+import Drone_Picture
 import subprocess
 
 
@@ -95,6 +96,7 @@ class Listener(libmyo.DeviceListener):
         print "roll " + str(roll)
         print "pitch " + str(pitch)
         print "yaw " + str(yaw)
+        print str(self.pose)
 
         sys.stdout.flush()
 
@@ -122,13 +124,13 @@ class Listener(libmyo.DeviceListener):
             myo.vibrate("short")
             Drone_Launch.main()
         elif pose == libmyo.Pose.fingers_spread:
-            myo.set_stream_emg(libmyo.StreamEmg.disabled)
-            self.emg_enabled = False
-            self.emg = None
+            myo.vibrate("short")
+            print "Click!"
+            Drone_Picture.main()
         self.pose = pose
         #if self.pose == "double_tap":
         #    myo.vibrate("short")
-        #self.output()
+        self.output()
 
     def on_orientation_data(self, myo, timestamp, orientation):
         self.orientation = orientation
