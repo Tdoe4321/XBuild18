@@ -5,8 +5,8 @@ from requests import get, put
 #comment by putting hash(#) 
 #uncomment by removing hash(#)
 
-token = 'b4d793f9680ba50d385e185b619eec0c0752347d'	#replace the value with your personal access token within single quotes(')
-VehicleID = 'HNCnaCYD'	#replace this with the vehicle ID within single quotes (')
+token = 'TOKEN'	#replace the value with your personal access token within single quotes(')
+VehicleID = 'ID'	#replace this with the vehicle ID within single quotes (')
 token = token.replace(" ", "")
 VehicleID = VehicleID.replace(" ", "")
 

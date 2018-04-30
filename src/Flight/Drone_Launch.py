@@ -12,10 +12,9 @@ def printResponse(msg, r):
 def launchLand():
 	global armed
 	armed = False
-	drone1 = DroneController('b4d793f9680ba50d385e185b619eec0c0752347d', 'HNCnaCYD')
-
-	token = 'b4d793f9680ba50d385e185b619eec0c0752347d'	#replace the value with your personal access token within single quotes(')
-	VehicleID = 'HNCnaCYD'	#replace this with the vehicle ID within single quotes (')
+	drone1 = DroneController('TOKEN', 'VehiclelID')
+	token = 'TOKEN'	#replace the value with your personal access token within single quotes(')
+	VehicleID = 'ID'	#replace this with the vehicle ID within single quotes (')
 	token = token.replace(" ", "")
 	VehicleID = VehicleID.replace(" ", "")
 
@@ -32,8 +31,8 @@ def launchLand():
 		print drone1.land(True)
 		time.sleep(7)
 	else:
-		print drone1.take_off(5.0)
-		time.sleep(9)
+		print drone1.take_off(2.0)
+		time.sleep(6)
 
 def main():
     launchLand()

@@ -9,7 +9,7 @@ import Drone_Picture
 import subprocess
 
 
-drone1 = DroneController('b4d793f9680ba50d385e185b619eec0c0752347d', 'HNCnaCYD')
+drone1 = DroneController('TOKEN', 'VehiclelID')
 
 libmyo.init()
 
@@ -41,7 +41,7 @@ class Listener(libmyo.DeviceListener):
     stop the Hub.
     """
 
-    interval = 0.25 # Output only 0.05 seconds
+    interval = .75 # Output only 0.05 seconds
 
     def __init__(self):
         super(Listener, self).__init__()
@@ -73,7 +73,7 @@ class Listener(libmyo.DeviceListener):
             roll = self.orientation[1]
             yaw = self.orientation[2] 
 
-        multi = 3
+        multi = 5
 
         #if (self.pose == "double_tap" and lastPose != "double_tap"):
         #   if(on):
@@ -82,7 +82,7 @@ class Listener(libmyo.DeviceListener):
         #        on = True
 
         if (on):
-            print drone1.velocity_set((multi*-roll), (multi*-pitch), 0.0)
+            print drone1.velocity_set((multi*pitch), (multi*-roll), 0.0)
             #print drone2.velocity_set((multi*-roll), (multi*-pitch), 0.0)
             #print drone3.velocity_set((multi*-roll), (multi*-pitch), 0.0)
         else:
@@ -93,8 +93,8 @@ class Listener(libmyo.DeviceListener):
         lastPose = self.pose
 
         #print drone1.velocity_set((multi*-pitch), (multi*-roll), 0.0)
-        print "roll " + str(roll)
-        print "pitch " + str(pitch)
+        print "pitch " + str(roll)
+        print "roll " + str(pitch)
         print "yaw " + str(yaw)
         print str(self.pose)
 
@@ -122,11 +122,12 @@ class Listener(libmyo.DeviceListener):
                 on = True
         elif pose == libmyo.Pose.fist:
             myo.vibrate("short")
-            Drone_Launch.main()
+            #Drone_Launch.main()
         elif pose == libmyo.Pose.fingers_spread:
             myo.vibrate("short")
-            print "Click!"
-            Drone_Picture.main()
+            #print "Click!"
+            #Drone_Picture.main()
+            Drone_Launch.main()
         self.pose = pose
         #if self.pose == "double_tap":
         #    myo.vibrate("short")
